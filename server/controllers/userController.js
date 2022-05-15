@@ -5,7 +5,7 @@ module.exports.register = async (req, res) => {
   try {
     // console.log(req.body);
     const { name, email, password } = req.body;
-
+    console.log(req.body);
     //validation
     if (!name) return res.status(400).send("Hey! Name field is required");
     if (!email) return res.status(400).send("Hey! Email field is required");
@@ -67,9 +67,9 @@ module.exports.login = async (req, res) => {
   }
 };
 
-module.exports.getAllUsers = async (req,res) => {
+module.exports.getAllUsers = async (req, res) => {
   //
-}
-module.exports.logout = async (req,res) => {
+};
+module.exports.logout = async (req, res) => {
   //
-}
+};

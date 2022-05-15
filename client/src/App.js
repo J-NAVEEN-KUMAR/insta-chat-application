@@ -1,48 +1,21 @@
 import "./App.css";
-import io from "socket.io-client";
-import { useState } from "react";
 import Chat from "./Chat";
-
-const socket = io.connect(`${process.env.REACT_APP_API}`);
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-  const [username, setUsername] = useState("");
-  const [room, setRoom] = useState("");
-  const [showChat, setShowChat] = useState(false);
-
-  const joinRoom = () => {
-    if (username !== "" && room !== "") {
-      socket.emit("join_room", room);
-      setShowChat(true);
-    }
-  };
   return (
-    <div className="App">
-      {!showChat ? (
-        <>
-          <div className="joinChatContainer">
-          <h3>Join Chat Room</h3>
-            <input
-              type="text"
-              placeholder="Name..."
-              onChange={(event) => {
-                setUsername(event.target.value);
-              }}
-            />
-            <input
-              type="text"
-              placeholder="Room ID..."
-              onChange={(event) => {
-                setRoom(event.target.value);
-              }}
-            />
-            <button onClick={joinRoom}>Join</button>
-          </div>
-        </>
-      ) : (
-        <Chat socket={socket} username={username} room={room} />
-      )}
-    </div>
+    <BrowserRouter>
+      <ToastContainer position="top-right" theme="dark" />
+      <Routes>
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        {/* <Route path="/" element={<Chat />} /> */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 
