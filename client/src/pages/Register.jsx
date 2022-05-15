@@ -16,7 +16,7 @@ const Register = () => {
   });
 
   useEffect(() => {
-    if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
+    if (localStorage.getItem(process.env.REACT_APP_CURRENT_USER_KEY)) {
       navigate("/");
     }
   }, []);
@@ -55,7 +55,7 @@ const Register = () => {
       event.preventDefault();
       if (handleValidation()) {
         const { email, name, password } = values;
-        const { data } = await axios.post(registerRoute, {
+        await axios.post(registerRoute, {
           name,
           email,
           password,

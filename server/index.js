@@ -1,12 +1,11 @@
 const express = require("express");
-const http = require("http");
 const cors = require("cors");
-const { Server } = require("socket.io");
+const socket = require("socket.io");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const { mongoose } = require("mongoose");
 const authRouter = require("./routes/auth");
-
+const messageRoutes = require("./routes/messagesRoutes");
 const app = express();
 dotenv.config();
 
@@ -26,35 +25,30 @@ app.use(morgan("dev"));
 
 //routes
 app.use("/api/auth", authRouter);
+app.use("/api/messages", messageRoutes);
 
 //connecting to socket.io
-const server = http.createServer(app);
-
-const io = new Server(server, {
+const server = app.listen(process.env.PORT, () =>
+  console.log(`Server started on ${process.env.PORT}`)
+);
+const io = socket(server, {
   cors: {
-    origin: `${process.env.REACT_APP_URL}`,
-    methods: ["GET", "POST"],
+    origin: "http://localhost:3000",
     credentials: true,
   },
 });
 
+global.onlineUsers = new Map();
 io.on("connection", (socket) => {
-  console.log(`User Connected: ${socket.id}`);
-
-  socket.on("join_room", (data) => {
-    socket.join(data);
-    console.log(`User with ID: ${socket.id} joined room: ${data}`);
+  global.chatSocket = socket;
+  socket.on("add-user", (userId) => {
+    onlineUsers.set(userId, socket.id);
   });
 
-  socket.on("send_message", (data) => {
-    socket.to(data.room).emit("receive_message", data);
-  });
-
-  socket.on("disconnect", () => {
-    console.log("User Disconnected", socket.id);
+  socket.on("send-msg", (data) => {
+    const sendUserSocket = onlineUsers.get(data.to);
+    if (sendUserSocket) {
+      socket.to(sendUserSocket).emit("msg-recieve", data.msg);
+    }
   });
 });
-
-//listening the app on the server on port
-const port = process.env.PORT || 3001;
-server.listen(port, () => console.log(`server is running at ${port}`));

@@ -9,7 +9,7 @@ const authRouter = require("express").Router();
 
 authRouter.post("/login", login);
 authRouter.post("/register", register);
-authRouter.post("/allusers/:id", getAllUsers);
-authRouter.post("/logout", logout);
+authRouter.get("/allusers/:id", getAllUsers);
+authRouter.get("/logout/:id", logout);
 
 module.exports = authRouter;

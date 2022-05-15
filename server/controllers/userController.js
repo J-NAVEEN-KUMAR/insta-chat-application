@@ -3,9 +3,8 @@ const bcrypt = require("bcrypt");
 
 module.exports.register = async (req, res) => {
   try {
-    // console.log(req.body);
-    const { name, email, password } = req.body;
     console.log(req.body);
+    const { name, email, password } = req.body;
     //validation
     if (!name) return res.status(400).send("Hey! Name field is required");
     if (!email) return res.status(400).send("Hey! Email field is required");
@@ -68,8 +67,24 @@ module.exports.login = async (req, res) => {
 };
 
 module.exports.getAllUsers = async (req, res) => {
-  //
+  try {
+    const users = await User.find({ _id: { $ne: req.params.id } }).select([
+      "email",
+      "name",
+      "_id",
+    ]);
+    return res.json(users);
+  } catch (error) {
+    console.log(error);
+  }
 };
+
 module.exports.logout = async (req, res) => {
-  //
+  try {
+    if (!req.params.id) return res.json({ msg: "User id is required " });
+    onlineUsers.delete(req.params.id);
+    return res.status(200).send();
+  } catch (ex) {
+    console.log(ex);
+  }
 };

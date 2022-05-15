@@ -8,13 +8,6 @@ import { loginRoute } from "../utils/APIRoutes";
 const Login = () => {
   const navigate = useNavigate();
   const [values, setValues] = useState({ email: "", password: "" });
-  const toastOptions = {
-    position: "top-right",
-    autoClose: 8000,
-    pauseOnHover: true,
-    draggable: true,
-    theme: "dark",
-  };
   useEffect(() => {
     if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
       navigate("/");
@@ -48,8 +41,8 @@ const Login = () => {
         });
         console.log(data);
         localStorage.setItem(
-          "instachat-current-user",
-          JSON.stringify(data.name)
+          process.env.REACT_APP_CURRENT_USER_KEY,
+          JSON.stringify(data)
         );
         toast.success("Login successful");
         navigate("/");
