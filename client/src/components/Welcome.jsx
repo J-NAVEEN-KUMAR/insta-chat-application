@@ -34,7 +34,7 @@ const Container = styled.div`
   color: white;
   flex-direction: column;
   span {
-    color: #FFFC00;
+    color: #C13584;
     text-transform: capitalize;
   }
 `;

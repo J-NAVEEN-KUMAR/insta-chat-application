@@ -111,7 +111,7 @@ const FormContainer = styled.div`
   justify-content: center;
   gap: 0.7rem;
   align-items: center;
-  background-color: #000000;
+  background-color: black;
   .brand {
     display: flex;
     align-items: center;
@@ -121,14 +121,15 @@ const FormContainer = styled.div`
       height: 5rem;
     }
     h1 {
-      color: #000000;
+      color: black;
+      font-weight:bold;
     }
   }
   form {
     display: flex;
     flex-direction: column;
     gap: 0.7rem;
-    background-color: #fffc00;
+    background-color: 	#25D366;
     border-radius: 2rem;
     padding: 2rem;
   }
@@ -148,7 +149,7 @@ const FormContainer = styled.div`
   }
   button {
     background-color: #000000;
-    color: #fffc00;
+    color: #25D366;
     padding: 1rem 1rem;
     border: none;
     font-weight: bold;

@@ -71,7 +71,7 @@ const Container = styled.div`
       height: 2rem;
     }
     h3 {
-      color: #FFFC00;
+      color: #405DE6;
       text-transform: uppercase;
     }
   }
@@ -110,7 +110,7 @@ const Container = styled.div`
       }
     }
     .selected {
-      background-color: #9a86f3;
+      background-color: #128c7e;
     }
   }
   .current-user {
@@ -122,7 +122,7 @@ const Container = styled.div`
     gap: 2rem;
     .username {
       h2 {
-        color: white;
+        color: #C13584;
         text-transform: capitalize;
       }
     }

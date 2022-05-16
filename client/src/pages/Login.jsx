@@ -106,7 +106,7 @@ const FormContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.7rem;
-    background-color: #fffc00;
+    background-color: #25D366;
     border-radius: 2rem;
     padding: 2rem;
   }
@@ -126,7 +126,7 @@ const FormContainer = styled.div`
   }
   button {
     background-color: black;
-    color: #fffc00;
+    color: #25D366;
     padding: 1rem 2rem;
     border: none;
     font-weight: bold;
