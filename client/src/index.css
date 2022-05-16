@@ -15,9 +15,9 @@ input {
 body {
   max-height: 100vh;
   max-width: 100vw;
-  overflow: hidden;
+  overflow: hidden;;
 }
 
 .Toastify__toast-theme--dark {
-  background-color: #00000076 !important;
+  background-color: #FFFC00 !important;
 }

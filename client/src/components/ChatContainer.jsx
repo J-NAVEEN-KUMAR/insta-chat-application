@@ -8,6 +8,7 @@ import ChatInput from "./ChatInput";
 
 const ChatContainer = ({ currentChat, socket }) => {
   const [messages, setMessages] = useState([]);
+  console.log(messages);
   const scrollRef = useRef();
   const [arrivalMessage, setArrivalMessage] = useState(null);
 
@@ -80,14 +81,8 @@ const ChatContainer = ({ currentChat, socket }) => {
     <Container>
       <div className="chat-header">
         <div className="user-details">
-          {/* <div className="avatar">
-            <img
-              src={`data:image/svg+xml;base64,${currentChat.avatarImage}`}
-              alt=""
-            />
-          </div> */}
           <div className="username">
-            <h3>{currentChat.username}</h3>
+            <h3>{currentChat.name}</h3>
           </div>
         </div>
         <Logout />
@@ -124,28 +119,27 @@ const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
+    padding: 0.1rem 2rem;
+    background-color: #128c7e;
+    border-radius: 1rem;
+    border: 0.21rem solid #075e54;
     .user-details {
       display: flex;
       align-items: center;
       gap: 1rem;
-      .avatar {
-        img {
-          height: 3rem;
-        }
-      }
       .username {
         h3 {
           color: white;
+          text-transform: capitalize;
         }
       }
     }
   }
   .chat-messages {
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
     overflow: auto;
     &::-webkit-scrollbar {
       width: 0.2rem;
@@ -162,7 +156,7 @@ const Container = styled.div`
         max-width: 40%;
         overflow-wrap: break-word;
         padding: 1rem;
-        font-size: 1.1rem;
+        font-size: 1rem;
         border-radius: 1rem;
         color: #d1d1d1;
         @media screen and (min-width: 720px) and (max-width: 1080px) {
@@ -170,16 +164,18 @@ const Container = styled.div`
         }
       }
     }
-    .sended {
+    .sent {
       justify-content: flex-end;
       .content {
-        background-color: #4f04ff21;
+        color: black;
+        background-color: #25d366;
       }
     }
     .recieved {
       justify-content: flex-start;
       .content {
-        background-color: #9900ff20;
+        color: black;
+        background-color: #34b7f1;
       }
     }
   }

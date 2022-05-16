@@ -19,11 +19,10 @@ const Welcome = () => {
   }, []);
   return (
     <Container>
-      {/* <img src={Robot} alt="" /> */}
       <h1>
         Welcome, <span>{userName}!</span>
       </h1>
-      <h3>Select a person to start real time chatting.</h3>
+      <h3>Select a person to start chatting.</h3>
     </Container>
   );
 };
@@ -34,11 +33,9 @@ const Container = styled.div`
   align-items: center;
   color: white;
   flex-direction: column;
-  img {
-    height: 20rem;
-  }
   span {
-    color: #4e0eff;
+    color: #FFFC00;
+    text-transform: capitalize;
   }
 `;
 

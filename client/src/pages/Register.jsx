@@ -7,7 +7,7 @@ import { registerRoute } from "../utils/APIRoutes";
 
 const Register = () => {
   const navigate = useNavigate();
- 
+
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -28,19 +28,13 @@ const Register = () => {
   const handleValidation = () => {
     const { password, confirmPassword, name, email } = values;
     if (password !== confirmPassword) {
-      toast.error(
-        "Password and confirm password should be same."
-      );
+      toast.error("Password and confirm password should be same.");
       return false;
     } else if (name.length < 3) {
-      toast.error(
-        "Username should be greater than 3 characters."
-      );
+      toast.error("Username should be greater than 3 characters.");
       return false;
     } else if (password.length < 8) {
-      toast.error(
-        "Password should be equal or greater than 8 characters."
-      );
+      toast.error("Password should be equal or greater than 8 characters.");
       return false;
     } else if (email === "") {
       toast.error("Email is required.");
@@ -117,7 +111,7 @@ const FormContainer = styled.div`
   justify-content: center;
   gap: 0.7rem;
   align-items: center;
-  background-color: #131324;
+  background-color: #000000;
   .brand {
     display: flex;
     align-items: center;
@@ -127,33 +121,34 @@ const FormContainer = styled.div`
       height: 5rem;
     }
     h1 {
-      color: white;
+      color: #000000;
     }
   }
   form {
     display: flex;
     flex-direction: column;
     gap: 0.7rem;
-    background-color: #00000076;
+    background-color: #fffc00;
     border-radius: 2rem;
     padding: 2rem;
   }
   input {
     background-color: transparent;
     padding: 0.7rem;
-    border: 0.1rem solid #4e0eff;
+    border: 0.1rem solid black;
     border-radius: 0.4rem;
-    color: white;
+    color: #000000;
+    font-weight: bold;
     width: 100%;
     font-size: 0.7rem;
     &:focus {
-      border: 0.1rem solid #997af0;
+      border: 0.1rem solid gray;
       outline: none;
     }
   }
   button {
-    background-color: #4e0eff;
-    color: white;
+    background-color: #000000;
+    color: #fffc00;
     padding: 1rem 1rem;
     border: none;
     font-weight: bold;
@@ -161,13 +156,14 @@ const FormContainer = styled.div`
     border-radius: 0.4rem;
     font-size: 0.7rem;
     &:hover {
-      background-color: #4e0eff;
+      background-color: #000000;
     }
   }
   span {
-    color: white;
+    color: #000000;
     a {
-      color: #4e0eff;
+      color: #000000;
+      font-weight: bold;
       text-decoration: none;
     }
   }

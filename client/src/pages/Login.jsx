@@ -89,7 +89,7 @@ const FormContainer = styled.div`
   justify-content: center;
   gap: 1rem;
   align-items: center;
-  background-color: #131324;
+  background-color: #000000;
   .brand {
     display: flex;
     align-items: center;
@@ -99,33 +99,34 @@ const FormContainer = styled.div`
       height: 5rem;
     }
     h1 {
-      color: white;
+      color: black;
     }
   }
   form {
     display: flex;
     flex-direction: column;
     gap: 0.7rem;
-    background-color: #00000076;
+    background-color: #fffc00;
     border-radius: 2rem;
     padding: 2rem;
   }
   input {
     background-color: transparent;
     padding: 1rem;
-    border: 0.1rem solid #4e0eff;
+    border: 0.1rem solid black;
     border-radius: 0.4rem;
-    color: white;
+    color: black;
+    font-weight:bold;
     width: 100%;
     font-size: 0.7rem;
     &:focus {
-      border: 0.1rem solid #997af0;
+      border: 0.1rem solid gray;
       outline: none;
     }
   }
   button {
-    background-color: #4e0eff;
-    color: white;
+    background-color: black;
+    color: #fffc00;
     padding: 1rem 2rem;
     border: none;
     font-weight: bold;
@@ -133,13 +134,14 @@ const FormContainer = styled.div`
     border-radius: 0.4rem;
     font-size: 1rem;
     &:hover {
-      background-color: #4e0eff;
+      background-color: black;
     }
   }
   span {
-    color: white;
+    color: black;
     a {
-      color: #4e0eff;
+      font-weight: bold;
+      color: black;
       text-decoration: none;
     }
   }

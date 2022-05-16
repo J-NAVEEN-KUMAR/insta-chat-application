@@ -35,7 +35,7 @@ const ChatInput = ({ handleSendMsg }) => {
       <form className="input-container" onSubmit={(event) => sendChat(event)}>
         <input
           type="text"
-          placeholder="type your message here"
+          placeholder="Message"
           onChange={(e) => setMsg(e.target.value)}
           value={msg}
         />
@@ -125,7 +125,7 @@ const Container = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #9a86f3;
+      background-color: #128C7E;
       border: none;
       @media screen and (min-width: 720px) and (max-width: 1080px) {
         padding: 0.3rem 1rem;
