@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+const User = require("../models/User.js");
+=======
 const User = require("../models/user")
+>>>>>>> e01a3dd (changed env file)
 const bcrypt = require("bcrypt");
 
 module.exports.register = async (req, res) => {

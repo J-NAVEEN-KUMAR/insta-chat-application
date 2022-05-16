@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+const Messages = require("../models/messageModel.js");
+
+=======
 const Messages = require("../models/messageModel");
+>>>>>>> e01a3dd (changed env file)
 module.exports.getMessages = async (req, res, next) => {
   try {
     const { from, to } = req.body;
@@ -35,4 +40,8 @@ module.exports.addMessage = async (req, res, next) => {
   } catch (ex) {
     next(ex);
   }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> e01a3dd (changed env file)
